@@ -16,23 +16,20 @@ kubectl get deployments
 kubectl get pods
 
 
-function DockerMakeYaml()
+function DockerMakeYaml(name, image, replicas, port, labelsArray)
 {
-#final result should look like:
-#apiVersion: apps/v1beta1
-#kind: Deployment
-#metadata:
-#  name: hello-world-deployment
-#spec:
-#  replicas: 2
-#  template:
-#    metadata:
-#      labels: # labels to select/identify the deployment
-#        app: hello-world  
-#    spec:     # pod spec                  
-#      containers: 
-#      - name: hello-world 
-#        image: hello-world-image:v1 # image we pushed
-#        ports:
-#        - containerPort: 3000
+export name
+export image
+export replicas
+export port
+for(str in labelsArray)
+	{  export str}
+
+rm -f final.yml temp.yml
+(echo "cat << EOF > final.yml";
+cat template.yml;
+echo "EOF";
+) > temp.yml
+. temp.yml
+cat final.yml
 }

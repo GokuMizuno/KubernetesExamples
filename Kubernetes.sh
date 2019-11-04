@@ -1,3 +1,7 @@
+#!\bin\bash
+
+#kubernetes commands --useful list, not exhaustive
+
 kubectl get services  #gets all services
 
 kubectl get pods -o widw  #all pods, verbose
@@ -5,8 +9,10 @@ kubectl get pods --all-namespaces  #gets all pods
 
 kubectl get pod myPod -o yaml  #gets pod's YAML
 
-#upgrade node
-def UpGradeTheNode(nameOfNode):
+
+#kubernetes upgrade node function, not exhaustive
+function UpGradeTheNode(nameOfNode)
+{
 	#drain in prep
 	kubectl cordon nameOfNode
 	kubectl drain nameOfNode
@@ -17,5 +23,4 @@ def UpGradeTheNode(nameOfNode):
 
 	#end by putting node back into place
 	kubectl uncordon nameOfNode
-
-#end of UpGradeTheNode
+}

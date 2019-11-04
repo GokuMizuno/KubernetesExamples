@@ -23,7 +23,8 @@ export image
 export replicas
 export port
 for(str in labelsArray)
-	{  export str}
+	{  export str  }
+#Add in company specific variables, and whatnot here.
 
 rm -f final.yml temp.yml
 (echo "cat << EOF > final.yml";

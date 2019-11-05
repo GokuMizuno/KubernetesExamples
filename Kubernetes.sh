@@ -9,6 +9,8 @@ kubectl get pods --all-namespaces  #gets all pods
 
 kubectl get pod myPod -o yaml  #gets pod's YAML
 
+kubectl expose deployment <nameOfDeployment> --type="LoadBalancer"  #allows pods to be accessed by the internet
+kubectl get services #shows all public pods
 
 #kubernetes upgrade node function, not exhaustive
 function UpGradeTheNode(nameOfNode)
